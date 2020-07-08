@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/ARA_2.0" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/ARA_2" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/ARA_2.0" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/ARA_2" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -31,7 +31,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-DSFML_STATIC" />
-			<Add directory="C:/SFML-2.5.1/include/SFML" />
+			<Add directory="C:/SFML-2.5.1/include" />
 		</Compiler>
 		<Linker>
 			<Add library="sfml-system" />
@@ -40,7 +40,18 @@
 			<Add library="sfml-audio" />
 			<Add directory="C:/SFML-2.5.1/lib" />
 		</Linker>
+		<Unit filename="include/draw.h" />
+		<Unit filename="include/functions.h" />
+		<Unit filename="include/gameStatus.h" />
 		<Unit filename="include/header.h" />
+		<Unit filename="include/mapRemoving.h" />
+		<Unit filename="include/pole.h" />
+		<Unit filename="include/rules.h" />
+		<Unit filename="include/saves.h" />
+		<Unit filename="include/settings.h" />
+		<Unit filename="include/sounds.h" />
+		<Unit filename="include/startingVars.h" />
+		<Unit filename="include/textures.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
