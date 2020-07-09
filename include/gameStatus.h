@@ -1,8 +1,8 @@
 class gameStatus
 {
     public:
-        bool firstMenu=1;
-        bool firstLoad=0;
+        bool firstMenu=0;
+        bool firstLoad=1;
 
         bool isMenu=0;
         bool isSaving=0;

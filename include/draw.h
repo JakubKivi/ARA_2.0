@@ -49,10 +49,6 @@ void drawFirstLoad(sf::RenderWindow &window){
     window.draw(saveslot6Sprite);
 }
 
-void animateBook(sf::RenderWindow &window){
-    window.draw(saveBookSprite);
-}
-
 void drawElse(sf::RenderWindow &window){
     Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
     window.draw(Kursor);

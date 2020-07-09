@@ -40,6 +40,7 @@
 			<Add library="sfml-audio" />
 			<Add directory="C:/SFML-2.5.1/lib" />
 		</Linker>
+		<Unit filename="include/animation.h" />
 		<Unit filename="include/draw.h" />
 		<Unit filename="include/functions.h" />
 		<Unit filename="include/gameStatus.h" />

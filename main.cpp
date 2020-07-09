@@ -2,7 +2,9 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "A.R.A.", sf::Style::None);
+    srand (time(NULL));
+
+    sf::RenderWindow window(sf::VideoMode(sf::VideoMode::getDesktopMode().width-1, sf::VideoMode::getDesktopMode().height-1), "A.R.A.", sf::Style::None);
     window.setMouseCursorVisible(false);
 
     loadingTexture(window);
@@ -19,9 +21,12 @@ int main()
 
     sf::Event event;
 
+    saveBookSprite.setOrigin(sf::VideoMode::getDesktopMode().width/2,940);
+    saveBookSprite.setPosition(sf::VideoMode::getDesktopMode().width/2,940);
+    animation book(saveBookSprite);
 
     while(true){
-        std::cout<<"x: "<<sf::Mouse::getPosition().x <<"y: "<<sf::Mouse::getPosition().y<<"\n";
+        //std::cout<<"x: "<<sf::Mouse::getPosition().x <<"y: "<<sf::Mouse::getPosition().y<<"\n";
 
         while (window.pollEvent(event))
         {
@@ -78,7 +83,17 @@ int main()
         else if(game.firstLoad){
             drawFirstLoad(window);
 
-                animateBook(window);
+            if(book.targetAchieved){
+                book.targetAchieved=0;
+                int a = rand()%201;
+                book.targetX= sf::VideoMode::getDesktopMode().width/2 + (a-100);
+
+                a = rand()%201;
+                book.targetY= 940 + (a-100);
+                std::cout<<"targetX: "<<book.targetX<<" targetY: "<<book.targetY<<"\n";
+            }else{
+                book.animate(1);
+            }
 
             window.draw(saveBookSprite);
         }

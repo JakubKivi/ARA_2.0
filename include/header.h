@@ -19,3 +19,4 @@
 #include "mapRemoving.h"
 #include "saves.h"
 #include "draw.h"
+#include "animation.h"
