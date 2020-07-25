@@ -94,9 +94,8 @@ sf::Texture kursorClick;
 sf::Sprite Kursor;
 
 //t³o
-sf::Texture backroundImage;
-
-
+sf::Texture backgroundImage;
+sf::Sprite backgroundImageSprite;
 
 void loadTextures(){
     if (!texture_pawnU.loadFromFile("graphics/ikony/peasantRed.png"))
@@ -260,7 +259,7 @@ void loadTextures(){
     {
         ms_error(666, "graphics/rzeczy/kursorKlik.png", 1);
     }
-    if(!backroundImage.loadFromFile("graphics/rzeczy/tloLight.jpg")){
+    if(!backgroundImage.loadFromFile("graphics/rzeczy/tloLight.jpg")){
         ms_error(666, "graphics/rzeczy/tloLight.jpg");
     }
     if(!saveNoBook.loadFromFile("graphics/saveslots/saveNoBook.png")){
@@ -311,6 +310,18 @@ void setSprites(){
     saveslot5Sprite.setTexture(saveslot5);
     saveslot6Sprite.setTexture(saveslot6);
     saveBackSprite.setTexture(saveBack);
+    backgroundImageSprite.setTexture(backgroundImage);
+
+    float skalaX = float(sf::VideoMode::getDesktopMode().width)/backgroundImage.getSize().x;
+    float skalaY = float(sf::VideoMode::getDesktopMode().height)/backgroundImage.getSize().y;
+    if(sf::VideoMode::getDesktopMode().width>sf::VideoMode::getDesktopMode().height){
+        backgroundImageSprite.setScale(skalaX, skalaX);
+        backgroundImageSprite.setPosition(0, float(-(backgroundImage.getSize().y*skalaX - sf::VideoMode::getDesktopMode().height)/2));
+    }else{
+        backgroundImageSprite.setScale(skalaY, skalaY);
+        backgroundImageSprite.setPosition((float(sf::VideoMode::getDesktopMode().width)-backgroundImage.getSize().x*skalaY)/2 ,0);
+    }
+
     saveBookSprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
     saveNoBookSprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
     saveslot2Sprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);

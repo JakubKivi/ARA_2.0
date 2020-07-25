@@ -10,7 +10,7 @@
     int basex=8;
     int basey=16;
 
-
+    gameStatus game;
 
     float scale;
     std::string actual_mode = "play";
@@ -24,4 +24,15 @@
     bool mouseButtonFromPrev=0;
 
     bool lostFocus=0;
+
+    //=====Pole type======//
+
+    Pole background_fields[17][34];
+    Pole *front_fields;
+
+    //=====posuniecie======//
+
+    int posuniecieX = 0;
+    int posuniecieY = 0;
+
 

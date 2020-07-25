@@ -41,23 +41,25 @@
 			<Add directory="C:/SFML-2.5.1/lib" />
 		</Linker>
 		<Unit filename="include/animation.h" />
+		<Unit filename="include/audio.h" />
 		<Unit filename="include/draw.h" />
+		<Unit filename="include/fields.h" />
+		<Unit filename="include/figures.h" />
+		<Unit filename="include/firstLoad.h" />
+		<Unit filename="include/firstMenu.h" />
 		<Unit filename="include/functions.h" />
 		<Unit filename="include/gameStatus.h" />
 		<Unit filename="include/header.h" />
+		<Unit filename="include/highlight.h" />
 		<Unit filename="include/mapRemoving.h" />
 		<Unit filename="include/pole.h" />
 		<Unit filename="include/rules.h" />
 		<Unit filename="include/saves.h" />
 		<Unit filename="include/settings.h" />
-		<Unit filename="include/sounds.h" />
 		<Unit filename="include/startingVars.h" />
 		<Unit filename="include/textures.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
 			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>

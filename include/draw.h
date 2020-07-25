@@ -39,15 +39,7 @@ void drawFirstMenu(sf::RenderWindow &window){
     window.draw(TutorialSprite);
 }
 
-void drawFirstLoad(sf::RenderWindow &window){
-    window.draw(saveNoBookSprite);
-    window.draw(saveslot1Sprite);
-    window.draw(saveslot2Sprite);
-    window.draw(saveslot3Sprite);
-    window.draw(saveslot4Sprite);
-    window.draw(saveslot5Sprite);
-    window.draw(saveslot6Sprite);
-}
+
 
 void drawElse(sf::RenderWindow &window){
     Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));

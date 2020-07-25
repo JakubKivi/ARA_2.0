@@ -9,21 +9,45 @@ int main()
 
     loadingTexture(window);
 
+    audio();
+
     loadTextures();
-    loadSounds();
     setSprites();
 
     animateAfterLoading(window);
 
     Pole background_fields[mapX][mapY];
-    gameStatus game;
+
     Settings settings;
 
     sf::Event event;
 
+    sf::Color basicColor = background_fields[8][28].getColor();
+
     saveBookSprite.setOrigin(sf::VideoMode::getDesktopMode().width/2,940);
     saveBookSprite.setPosition(sf::VideoMode::getDesktopMode().width/2,940);
     animation book(saveBookSprite);
+
+    if(sf::VideoMode::getDesktopMode().width>sf::VideoMode::getDesktopMode().height){
+        scale=0.35*sf::VideoMode::getDesktopMode().height/1080; //uzale¿nic od sizePlanszyPrzed
+        posuniecieX=(sf::VideoMode::getDesktopMode().width-((16*texture_kingD.getSize().x*0.79*scale)+texture_kingD.getSize().x*scale))/2;
+
+        posuniecieY=0;//pawe³ da rade!... wcale nie! asia mi pomog³a bo jest fajniejsza <3
+    }else{
+        scale=0.397*sf::VideoMode::getDesktopMode().width/1080; //uzale¿niæ od size planszzyPrzed
+        posuniecieX=0;
+        posuniecieY=(sf::VideoMode::getDesktopMode().height-((32*texture_kingD.getSize().y*0.45*scale)+texture_kingD.getSize().y*scale))/2;
+    }
+
+
+    int scaleMenuX=1;
+    int scaleMenuY=1;
+
+    bool doOnce=1;
+
+    loadSettings(settings);
+    backgroundFields();
+    frontFields();
 
     while(true){
         //std::cout<<"x: "<<sf::Mouse::getPosition().x <<"y: "<<sf::Mouse::getPosition().y<<"\n";
@@ -78,24 +102,28 @@ int main()
             }
         }
         if(game.firstMenu){
-            drawFirstMenu(window);
+            if(!firstMenu(window, scaleMenuX, scaleMenuY))return 0;
         }
         else if(game.firstLoad){
-            drawFirstLoad(window);
-
-            if(book.targetAchieved){
-                book.targetAchieved=0;
-                int a = rand()%201;
-                book.targetX= sf::VideoMode::getDesktopMode().width/2 + (a-100);
-
-                a = rand()%201;
-                book.targetY= 940 + (a-100);
-                std::cout<<"targetX: "<<book.targetX<<" targetY: "<<book.targetY<<"\n";
-            }else{
-                book.animate(1);
+            firstLoad(window);
+            book.animate();
+            window.draw(saveBookSprite);
+        }else if(game.game){
+            if(doOnce){
+                doOnce=0;
+                LoadSave(0, front_fields);
             }
 
-            window.draw(saveBookSprite);
+            window.draw(backgroundImageSprite);
+            for (int i = 0; i<17; ++i)
+            {
+                for (int j = 0; j<33; ++j)
+                {
+                    window.draw(background_fields[i][j]);
+                    window.draw(front_fields[i * mapY + j]);
+                }
+            }
+
         }
 
         drawElse(window);

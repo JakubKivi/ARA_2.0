@@ -1,15 +1,3 @@
-int saveChosing(){
-    std::fstream file;  // plik
-    std::string line;
-
-    file.open("Saves/a.txt");
-    getline(file, line);
-    int returning = int(line[0])-('0');
-    file.close();
-    return returning;
-
-}
-
 int loadSettings(Settings &settings){
     std::fstream file;  // plik
     std::string line;
@@ -65,32 +53,32 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
 
     if(save_number == 0)
     {
-        file.open("Saves/save0.txt", std::ios::in);
+        file.open("saves/save0.txt", std::ios::in);
     }
     else if(save_number == 1)
     {
-        file.open("Saves/save1.txt", std::ios::in);
+        file.open("saves/save1.txt", std::ios::in);
     }
     else if(save_number == 2)
     {
-        file.open("Saves/save2.txt", std::ios::in);
+        file.open("saves/save2.txt", std::ios::in);
     }
     else if(save_number == 3)
     {
-        file.open("Saves/save3.txt", std::ios::in);
+        file.open("saves/save3.txt", std::ios::in);
     }
     else if(save_number == 4)
     {
-        file.open("Saves/save4.txt", std::ios::in);
+        file.open("saves/save4.txt", std::ios::in);
     }
     else if(save_number == 5)
     {
-        file.open("Saves/save5.txt", std::ios::in);
+        file.open("saves/save5.txt", std::ios::in);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
 
     if(file.good() == false)
     {
-        ms_error(84, "Load_From_File/LoadSave/file.good() == false", 1);
+        ms_error(84, "saves/LoadSave/file.good() == false", 1);
         file.close();
         return 1;
     }
