@@ -1,27 +1,29 @@
-void baseUp(){
+#include "../../include/mapRemoving.hpp"
+
+void mapRemoving::baseUp(){
     baseY-=2;
     basey+=2;
 }
 
-void baseLeftUp(){
+void mapRemoving::baseLeftUp(){
     baseX-=1;
     baseY-=1;
     basex+=1;
     basey+=1;
 }
 
-void baseLeftDown(){
+void mapRemoving::baseLeftDown(){
     baseX-=1;
     baseY+=1;
     basex+=1;
     basey-=1;
 }
 
-void baseDown(){
+void mapRemoving::baseDown(){
     baseY+=2;
     basey-=2;
 }
-void baseJump(){
+void mapRemoving::baseJump(){
     int a=nrZmiany2-1;
     baseX=baseX+3*nrZmiany2-a;
     basex=basex-3*nrZmiany2+a;
@@ -30,8 +32,7 @@ void baseJump(){
     nrZmiany2++;
 }
 
-
-void algorytmBase(){
+void mapRemoving::algorytmBase(){
 
     if(nrZmiany==1||nrZmiany==5||nrZmiany==6
         ||nrZmiany==11||nrZmiany==12||nrZmiany==13

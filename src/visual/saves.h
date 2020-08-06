@@ -42,7 +42,7 @@ int loadSettings(Settings &settings){
     return 0;
 }
 
-int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie zepsulo, 2 -> lekki blad
+int LoadSave(int save_number, Pole *fields, mapRemoving &mapFall, gameStatus &game) //0 -> dobrze, 1 -> cos sie powaznie zepsulo, 2 -> lekki blad
 {
     int board_size_y = 34;
     std::string names[8] = {"pawn", "ghost", "tower", "cav", "mystery", "charge", "king", "notexist"};
@@ -100,42 +100,42 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
         return 1;
     }
 
-    nrTura = 0;
+    game.nrTura = 0;
 
-    for(int i = 0; i < line.length(); i ++)
+    for(int i = 0; i < int(line.length()); i ++)
     {
-        nrTura = nrTura * 10 + int(line[i]) - int('0');
+        game.nrTura = game.nrTura * 10 + int(line[i]) - int('0');
     }
-    tura = nrTura % 2+1;
+    game.tura = game.nrTura % 2+1;
     //std::cout<<nrTura<<"\n";
 
-    for(int i = 1; i < nrTura; i ++)
+    for(int i = 1; i < game.nrTura; i ++)
     {
         if(i==1){
-            fields[baseX*34+baseY].name="notexist";
-            fields[baseX*34+baseY].owner=0;
-            baseX+=1;
-            baseY-=1;
-            basex-=1;
-            basey+=1;
+            fields[mapFall.baseX*34+mapFall.baseY].name="notexist";
+            fields[mapFall.baseX*34+mapFall.baseY].owner=0;
+            mapFall.baseX+=1;
+            mapFall.baseY-=1;
+            mapFall.basex-=1;
+            mapFall.basey+=1;
         }
-        if(oldTura+coIleTurMaSieZapadac<=i){
+        if(game.oldTura+coIleTurMaSieZapadac<=i){
             //std::cout<<nrZmiany<<"\n";
             //std::cout<<nrZmiany2<<"\n";
 
             //background_fields[baseX][baseY].setPosition(1000,1000);
-            fields[baseX*34+baseY].name="notexist";
-            fields[baseX*34+baseY].owner=0;
+            fields[mapFall.baseX*34+mapFall.baseY].name="notexist";
+            fields[mapFall.baseX*34+mapFall.baseY].owner=0;
             //background_fields[basex][basey].setPosition(1000,1000);
-            fields[basex*34+basey].name="notexist";
-            fields[basex*34+basey].owner=0;
-            algorytmBase();
+            fields[mapFall.basex*34+mapFall.basey].name="notexist";
+            fields[mapFall.basex*34+mapFall.basey].owner=0;
+            mapFall.algorytmBase();
 
 
 
-            oldTura=i;
+            game.oldTura=i;
 
-            nrZmiany++;
+            mapFall.nrZmiany++;
             //std::cout<<nrZmiany-2<<std::endl;
 
         }
@@ -206,7 +206,7 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
             fields[figure_x * board_size_y + figure_y].owner = figure_owner;  // stawiam pionka
             fields[figure_x * board_size_y + figure_y].name = figure_name;    // stawiam pionka
             setFigureTexture(&fields[figure_x * board_size_y + figure_y]);
-            fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(scale, scale));
+            fields[figure_x * board_size_y + figure_y].setScale(sf::Vector2f(game.scale, game.scale));
         }
     }
 
@@ -214,10 +214,9 @@ int LoadSave(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     return returning;
 }
 
-int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie zepsulo, 2 -> lekki blad
+int SaveGame(int save_number, Pole *fields, mapRemoving &mapFall, gameStatus &game) //0 -> dobrze, 1 -> cos sie powaznie zepsulo, 2 -> lekki blad
 {
     int board_size_y = 34;
-    int returning = 0;
 
     std::fstream file;  // plik
 
@@ -242,7 +241,7 @@ int SaveGame(int save_number, Pole *fields) //0 -> dobrze, 1 -> cos sie powaznie
     {
         file.open("Saves/save5.txt", std::ios::out);
     }// ###W przypadku, gdy bedzie potrzebne wiecej zapisow, tu trzeba dodac odpowiednie elseif'y
-    file<<nrTura<<"\n";
+    file<<game.nrTura<<"\n";
 
     for (int i = 0; i<17;++i)
     {

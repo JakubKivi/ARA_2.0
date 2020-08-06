@@ -1,7 +1,4 @@
-sf::Music music;
-sf::Sound sound;
-
-int audio(){
+void audio(sf::Music &music, sf::Sound &sound){
 
 
     if (!music.openFromFile("audio/music.wav"))ms_error(24, "nie zaladowano music.wav");

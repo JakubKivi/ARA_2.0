@@ -1,4 +1,4 @@
-void backgroundFields(){
+void backgroundFields(gameStatus &game){
 
     front_fields = new Pole [578];
     // Przygotowanie tablic
@@ -24,12 +24,12 @@ void backgroundFields(){
                     background_fields[i][j].setTexture(Background3);
                     background_fields[i][j].typK=3;
                 }
-                background_fields[i][j].setScale(sf::Vector2f(scale, scale));
+                background_fields[i][j].setScale(sf::Vector2f(game.scale, game.scale));
                 //background_fields[i][j].setOrigin(sf::Vector2f(0.1, 0.1));
-                background_fields[i][j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*scale+posuniecieX,j*texture_kingD.getSize().x*scale*0.45+posuniecieY));
-                front_fields[i * mapY + j].setScale(sf::Vector2f(scale, scale));
+                background_fields[i][j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*game.scale+game.posuniecieX,j*texture_kingD.getSize().x*game.scale*0.45+game.posuniecieY));
+                front_fields[i * mapY + j].setScale(sf::Vector2f(game.scale, game.scale));
                 //front_fields[i * mapY + j].setOrigin(sf::Vector2f(0.1, 0.1));
-                front_fields[i * mapY + j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*scale+posuniecieX,j*texture_kingD.getSize().x*0.45*scale+posuniecieY));
+                front_fields[i * mapY + j].setPosition(sf::Vector2f(i*texture_kingD.getSize().x*0.79*game.scale+game.posuniecieX,j*texture_kingD.getSize().x*0.45*game.scale+game.posuniecieY));
             }
             else
             {
@@ -69,17 +69,16 @@ void backgroundFields(){
     }
 }
 
-frontFields(){
+void frontFields(){
 
     for(int i = 0; i < 17; i ++)
     {
         for(int j = 0; j < 34; j ++)
         {
             setFigureTexture(&front_fields[i * mapY + j]);
-            int a=rand()%3;
-                if(background_fields[i][j].typK==1)background_fields[i][j].setTexture(Background);
-                else if(background_fields[i][j].typK==2)background_fields[i][j].setTexture(Background2);
-                else if(background_fields[i][j].typK==3)background_fields[i][j].setTexture(Background3);
+            if(background_fields[i][j].typK==1)background_fields[i][j].setTexture(Background);
+            else if(background_fields[i][j].typK==2)background_fields[i][j].setTexture(Background2);
+            else if(background_fields[i][j].typK==3)background_fields[i][j].setTexture(Background3);
         }
     }
 }

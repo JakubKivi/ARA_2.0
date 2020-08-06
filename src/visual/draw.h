@@ -39,9 +39,20 @@ void drawFirstMenu(sf::RenderWindow &window){
     window.draw(TutorialSprite);
 }
 
+void drawGame(sf::RenderWindow &window){
+    window.draw(backgroundImageSprite);
+    for (int i = 0; i<17; ++i)
+    {
+        for (int j = 0; j<33; ++j)
+        {
+            window.draw(background_fields[i][j]);
+            window.draw(front_fields[i * mapY + j]);
+        }
+    }
+}
 
 
-void drawElse(sf::RenderWindow &window){
+void drawKursor(sf::RenderWindow &window){
     Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
     window.draw(Kursor);
     window.display();
