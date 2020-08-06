@@ -49,19 +49,19 @@
 		<Unit filename="include/startingVars.hpp" />
 		<Unit filename="include/textures.hpp" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/bigLoop/firstLoad.cpp" />
-		<Unit filename="src/bigLoop/firstMenu.cpp" />
-		<Unit filename="src/bigLoop/gameLoop.cpp" />
-		<Unit filename="src/gameMechanics/fields.cpp" />
-		<Unit filename="src/gameMechanics/figures.cpp" />
-		<Unit filename="src/gameMechanics/gameStatus.cpp" />
-		<Unit filename="src/gameMechanics/highlight.cpp" />
-		<Unit filename="src/gameMechanics/mapRemoving.cpp" />
-		<Unit filename="src/visual/audio.cpp" />
-		<Unit filename="src/visual/draw.cpp" />
-		<Unit filename="src/visual/functions.cpp" />
-		<Unit filename="src/visual/saves.cpp" />
-		<Unit filename="src/visual/textures.cpp" />
+		<Unit filename="src/bigLoop/firstLoad.h" />
+		<Unit filename="src/bigLoop/firstMenu.h" />
+		<Unit filename="src/bigLoop/gameLoop.h" />
+		<Unit filename="src/gameMechanics/fields.h" />
+		<Unit filename="src/gameMechanics/figures.h" />
+		<Unit filename="src/gameMechanics/gameStatus.h" />
+		<Unit filename="src/gameMechanics/highlight.h" />
+		<Unit filename="src/gameMechanics/mapRemoving.h" />
+		<Unit filename="src/visual/audio.h" />
+		<Unit filename="src/visual/draw.h" />
+		<Unit filename="src/visual/functions.h" />
+		<Unit filename="src/visual/saves.h" />
+		<Unit filename="src/visual/textures.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

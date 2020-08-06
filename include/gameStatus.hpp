@@ -10,6 +10,7 @@ public:
     bool isSaving=0;
     bool win=0;
 
+    int opponentOwner;
     int figure_x = 0;
     int figure_y = 0;
     int target_x = 0;

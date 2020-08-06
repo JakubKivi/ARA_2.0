@@ -89,7 +89,10 @@ int main()
                 doOnce=0;
                 LoadSave(0, front_fields, mapFall, game);
             }
-            gameLoop(window, mapFall, game);
+            gameLoop(window, mapFall, game, sound);
+
+
+
             drawGame(window);
 
         }
