@@ -1,6 +1,6 @@
 # ARA_2.0
 
-<img align="left" width="300" height="300" src="graphics/rzeczy/ara.ico">
+<img align="left" width="300" height="300" src="https://jakubkivi.github.io/assets/portfolio/ara/1.webp">
 
 Second version of chesslike game
 
