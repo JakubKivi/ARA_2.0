@@ -1,6 +1,6 @@
 # ARA_2.0
 
-<img align="left" width="300" height="300" src="https://jakubkivi.github.io/assets/img/portfolio/ara/1.png">
+<img align="left" width="300" height="300" src="graphics/rzeczy/ara.io">
 
 Second version of chesslike game
 
@@ -8,6 +8,4 @@ ARA is a C++ and SFML game, made by a group of friends during winter holiday in 
 
 This repo is made to make second, better version and finally end this. I am adding new graphics made by, of course, our graphic designer, and still, when I have some free time I am making some improvements. Hope that game will be fully playable and downloadable at the end of 2020.
 
-More info: https://jakubkivi.github.io/en#araModal
-
-PL info: https://jakubkivi.github.io#araModal
+More info [here](https://jakubkivi.github.io/#portfolio-modal-ara).
